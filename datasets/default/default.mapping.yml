@@ -1,0 +1,269 @@
+Insert Account:
+  sf_object: Account
+  table: Account
+  fields:
+  - AccountNumber
+  - AccountSource
+  - AnnualRevenue
+  - BillingCity
+  - BillingCountry
+  - BillingGeocodeAccuracy
+  - BillingLatitude
+  - BillingLongitude
+  - BillingPostalCode
+  - BillingState
+  - BillingStreet
+  - Description
+  - Fax
+  - Industry
+  - Jigsaw
+  - Name
+  - NumberOfEmployees
+  - Ownership
+  - Phone
+  - Rating
+  - ShippingCity
+  - ShippingCountry
+  - ShippingGeocodeAccuracy
+  - ShippingLatitude
+  - ShippingLongitude
+  - ShippingPostalCode
+  - ShippingState
+  - ShippingStreet
+  - Sic
+  - SicDesc
+  - Site
+  - TickerSymbol
+  - Type
+  - Website
+Insert LoyaltyProgram:
+  sf_object: LoyaltyProgram
+  table: LoyaltyProgram
+  fields:
+  - Description
+  - EscrowPeriod
+  - IsPrimary
+  - Name
+  - Status
+Insert Campaign:
+  sf_object: Campaign
+  table: Campaign
+  fields:
+  - Name
+Insert LoyaltyProgramSetup:
+  sf_object: LoyaltyProgramSetup
+  table: LoyaltyProgramSetup
+  fields:
+  - MasterLabel
+  - Language
+  - DeveloperName
+Insert JournalType:
+  sf_object: JournalType
+  table: JournalType
+  fields:
+  - Description
+  - Name
+  - ProcessType
+Insert Event:
+  sf_object: Event
+  table: Event
+  fields:
+  - IsAllDayEvent
+  - IsRecurrence
+  - Description
+  - ActivityDate
+  - ActivityDateTime
+  - DurationInMinutes
+  - EndDateTime
+  - EventSubtype
+  - Location
+  - IsPrivate
+  - RecurrenceDayOfMonth
+  - RecurrenceDayOfWeekMask
+  - RecurrenceEndDateOnly
+  - RecurrenceInstance
+  - RecurrenceInterval
+  - RecurrenceMonthOfYear
+  - Recurrence2PatternText
+  - RecurrenceStartDateTime
+  - RecurrenceTimeZoneSidKey
+  - RecurrenceType
+  - ReminderDateTime
+  - IsReminderSet
+  - ShowAs
+  - StartDateTime
+  - Subject
+Insert VoucherDefinition:
+  sf_object: VoucherDefinition
+  table: VoucherDefinition
+  fields:
+  - IsActive
+  - CostPerVoucher
+  - Description
+  - DiscountPercent
+  - EffectiveDate
+  - ExpirationDate
+  - ExpirationPeriod
+  - ExpirationPeriodUnit
+  - ExpirationType
+  - FaceValue
+  - Name
+  - IsPartialRedeemable
+  - Type
+  lookups:
+    PartnerAccountId:
+      table: Account
+      key_field: PartnerAccountId
+    LoyaltyProgramId:
+      table: LoyaltyProgram
+      key_field: LoyaltyProgramId
+Insert LoyaltyTierGroup:
+  sf_object: LoyaltyTierGroup
+  table: LoyaltyTierGroup
+  fields:
+  - IsActive
+  - Description
+  - ExtendExpiration
+  - IsHiddenToMembers
+  - TierPeriodUnit
+  - TierPeriodQuantity
+  - IsPrimary
+  - QpResetDate
+  - QpResetFrequency
+  - QpResetPeriod
+  - Name
+  - TierModel
+  lookups:
+    LoyaltyProgramId:
+      table: LoyaltyProgram
+      key_field: LoyaltyProgramId
+Insert JournalSubType:
+  sf_object: JournalSubType
+  table: JournalSubType
+  fields:
+  - Description
+  - Name
+  lookups:
+    JournalTypeId:
+      table: JournalType
+      key_field: JournalTypeId
+Insert LoyaltyPgmEngmtAttribute:
+  sf_object: LoyaltyPgmEngmtAttribute
+  table: LoyaltyPgmEngmtAttribute
+  fields:
+  - DefaultValue
+  - Description
+  - EndDate
+  - MaximumResetCountPerPeriod
+  - Name
+  - ShouldOverwriteAttrCurrVal
+  - ResetValueOn
+  - StartDate
+  - Status
+  - TargetValue
+  - ValueResetFrequency
+  lookups:
+    LoyaltyProgramId:
+      table: LoyaltyProgram
+      key_field: LoyaltyProgramId
+Insert LoyaltyProgramCurrency:
+  sf_object: LoyaltyProgramCurrency
+  table: LoyaltyProgramCurrency
+  fields:
+  - CostperUnit
+  - CurrencyType
+  - ExpiryModel
+  - ExpiryPeriodFrequency
+  - ExpiryPeriodUnit
+  - ExtendExpiration
+  - HasEscrow
+  - IsActive
+  - IsPrimary
+  - Name
+  lookups:
+    LoyaltyProgramId:
+      table: LoyaltyProgram
+      key_field: LoyaltyProgramId
+    LoyaltyTierGroupId:
+      table: LoyaltyTierGroup
+      key_field: LoyaltyTierGroupId
+Insert LoyaltyTier:
+  sf_object: LoyaltyTier
+  table: LoyaltyTier
+  fields:
+  - Description
+  - SequenceNumber
+  - Name
+  lookups:
+    LoyaltyTierGroupId:
+      table: LoyaltyTierGroup
+      key_field: LoyaltyTierGroupId
+Insert LoyaltyProgramProcess:
+  sf_object: LoyaltyProgramProcess
+  table: LoyaltyProgramProcess
+  fields:
+  - Description
+  - Name
+  - ExecutionType
+  - ProcessType
+  - Status
+  lookups:
+    JournalSubTypeId:
+      table: JournalSubType
+      key_field: JournalSubTypeId
+    JournalTypeId:
+      table: JournalType
+      key_field: JournalTypeId
+    LoyaltyProgramId:
+      table: LoyaltyProgram
+      key_field: LoyaltyProgramId
+Insert Promotion:
+  sf_object: Promotion
+  table: Promotion
+  fields:
+  - IsActive
+  - CumulativeUsageTarget
+  - CurrentLiabilityAmount
+  - CurrentPointCount
+  - Description
+  - EndDate
+  - EnrollmentEndDate
+  - IsEnrollmentRequired
+  - EnrollmentStartDate
+  - FulfillmentAction
+  - IssuedVoucherCount
+  - LoyaltyPromotionType
+  - MaximumLiabilityAmount
+  - MaximumRewardValue
+  - MaximumVoucherCount
+  - Name
+  - Objective
+  - PointFactor
+  - IsPointsWithFactor
+  - TotalRewardPoints
+  - StartDate
+  - Status
+  - TransactionJournalType
+  lookups:
+    CampaignId:
+      table: Campaign
+      key_field: CampaignId
+    LoyaltyProgramCurrencyId:
+      table: LoyaltyProgramCurrency
+      key_field: LoyaltyProgramCurrencyId
+    LoyaltyProgramId:
+      table: LoyaltyProgram
+      key_field: LoyaltyProgramId
+    DefaultVoucherDefinitionId:
+      table: VoucherDefinition
+      key_field: DefaultVoucherDefinitionId
+Insert LoyaltyPgmEngmtAttrProm:
+  sf_object: LoyaltyPgmEngmtAttrProm
+  table: LoyaltyPgmEngmtAttrProm
+  lookups:
+    LoyaltyProgramEngmtAttrId:
+      table: LoyaltyPgmEngmtAttribute
+      key_field: LoyaltyProgramEngmtAttrId
+    PromotionId:
+      table: Promotion
+      key_field: PromotionId

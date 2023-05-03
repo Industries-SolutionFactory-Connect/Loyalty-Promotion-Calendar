@@ -1,0 +1,200 @@
+extract:
+  VoucherDefinition:
+    fields:
+    - PartnerAccountId
+    - IsActive
+    - CostPerVoucher
+    - Description
+    - DiscountPercent
+    - EffectiveDate
+    - ExpirationDate
+    - ExpirationPeriod
+    - ExpirationPeriodUnit
+    - ExpirationType
+    - FaceValue
+    - LoyaltyProgramId
+    - Name
+    - IsPartialRedeemable
+    - ProductId
+    - Type
+  Account:
+    fields:
+    - AccountNumber
+    - AccountSource
+    - AnnualRevenue
+    - BillingCity
+    - BillingCountry
+    - BillingGeocodeAccuracy
+    - BillingLatitude
+    - BillingLongitude
+    - BillingPostalCode
+    - BillingState
+    - BillingStreet
+    - Description
+    - Fax
+    - Industry
+    - Jigsaw
+    - Name
+    - NumberOfEmployees
+    - Ownership
+    - Phone
+    - Rating
+    - ShippingCity
+    - ShippingCountry
+    - ShippingGeocodeAccuracy
+    - ShippingLatitude
+    - ShippingLongitude
+    - ShippingPostalCode
+    - ShippingState
+    - ShippingStreet
+    - Sic
+    - SicDesc
+    - Site
+    - TickerSymbol
+    - Type
+    - Website
+  LoyaltyProgram:
+    fields:
+    - Description
+    - EscrowPeriod
+    - IsPrimary
+    - Name
+    - Status
+  Promotion:
+    fields:
+    - IsActive
+    - CampaignId
+    - CumulativeUsageTarget
+    - LoyaltyProgramCurrencyId
+    - CurrentLiabilityAmount
+    - CurrentPointCount
+    - Description
+    - EndDate
+    - EnrollmentEndDate
+    - IsEnrollmentRequired
+    - EnrollmentStartDate
+    - FulfillmentAction
+    - IssuedVoucherCount
+    - LoyaltyProgramId
+    - LoyaltyPromotionType
+    - MaximumLiabilityAmount
+    - MaximumRewardValue
+    - MaximumVoucherCount
+    - Name
+    - Objective
+    - PointFactor
+    - IsPointsWithFactor
+    - TotalRewardPoints
+    - StartDate
+    - Status
+    - TransactionJournalType
+    - DefaultVoucherDefinitionId
+  Campaign:
+    fields:
+    - Name
+  LoyaltyProgramCurrency:
+    fields:
+    - CostperUnit
+    - CurrencyType
+    - ExpiryModel
+    - ExpiryPeriodFrequency
+    - ExpiryPeriodUnit
+    - ExtendExpiration
+    - HasEscrow
+    - IsActive
+    - IsPrimary
+    - Name
+    - LoyaltyProgramId
+    - LoyaltyTierGroupId
+  LoyaltyTierGroup:
+    fields:
+    - IsActive
+    - Description
+    - ExtendExpiration
+    - IsHiddenToMembers
+    - LoyaltyProgramId
+    - TierPeriodUnit
+    - TierPeriodQuantity
+    - IsPrimary
+    - QpResetDate
+    - QpResetFrequency
+    - QpResetPeriod
+    - Name
+    - TierModel
+  LoyaltyTier:
+    fields:
+    - Description
+    - LoyaltyTierGroupId
+    - SequenceNumber
+    - Name
+  LoyaltyProgramSetup:
+    fields:
+    - MasterLabel
+    - Language
+    - DeveloperName
+  LoyaltyProgramProcess:
+    fields:
+    - Description
+    - JournalSubTypeId
+    - JournalTypeId
+    - LoyaltyProgramId
+    - Name
+    - ExecutionType
+    - ProcessType
+    - Status
+  JournalSubType:
+    fields:
+    - Description
+    - Name
+  JournalType:
+    fields:
+    - Description
+    - Name
+    - ProcessType
+  LoyaltyPgmEngmtAttribute:
+    fields:
+    - DefaultValue
+    - Description
+    - EndDate
+    - LoyaltyProgramId
+    - MaximumResetCountPerPeriod
+    - Name
+    - ShouldOverwriteAttrCurrVal
+    - ResetValueOn
+    - StartDate
+    - Status
+    - TargetValue
+    - ValueResetFrequency
+  LoyaltyPgmEngmtAttrProm:
+    fields:
+    - LoyaltyProgramEngmtAttrId
+    - PromotionId
+  Event:
+    fields:
+    - IsAllDayEvent
+    - IsRecurrence
+    - Description
+    - ActivityDate
+    - ActivityDateTime
+    - DurationInMinutes
+    - EndDateTime
+    - EventSubtype
+    - Location
+    - WhoId
+    - IsPrivate
+    - RecurrenceDayOfMonth
+    - RecurrenceDayOfWeekMask
+    - RecurrenceEndDateOnly
+    - RecurrenceInstance
+    - RecurrenceInterval
+    - RecurrenceMonthOfYear
+    - Recurrence2PatternText
+    - RecurrenceStartDateTime
+    - RecurrenceTimeZoneSidKey
+    - RecurrenceType
+    - WhatId
+    - ReminderDateTime
+    - IsReminderSet
+    - ShowAs
+    - StartDateTime
+    - Subject
