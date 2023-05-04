@@ -78,28 +78,25 @@ INSERT INTO "Event" VALUES(1,'True','False','','2023-04-28','','4320','2023-04-3
 INSERT INTO "Event" VALUES(2,'True','False','','2023-07-01','','11520','2023-07-08T00:00:00.000+0000','Event','','False','','','','','','','','','','','','False','Busy','2023-07-01T00:00:00.000+0000','Fourth Of July');
 CREATE TABLE "JournalSubType" (
 	id INTEGER NOT NULL, 
-	"Description" VARCHAR(255), 
 	"Name" VARCHAR(255), 
 	"JournalTypeId" VARCHAR(255), 
 	PRIMARY KEY (id)
 );
-INSERT INTO "JournalSubType" VALUES(1,'','Purchase','5');
-INSERT INTO "JournalSubType" VALUES(2,'Represents transactions that credit points to new loyalty program members that have joined a loyalty program.','Member Enrollment','5');
-INSERT INTO "JournalSubType" VALUES(3,'Represents transactions that credit points to loyalty program members when a member they have referred has joined the loyalty program.','Member Referral','5');
+INSERT INTO "JournalSubType" VALUES(1,'Purchase','5');
+INSERT INTO "JournalSubType" VALUES(2,'Member Enrollment','5');
+INSERT INTO "JournalSubType" VALUES(3,'Member Referral','5');
 CREATE TABLE "JournalType" (
 	id INTEGER NOT NULL, 
-	"Description" VARCHAR(255), 
 	"Name" VARCHAR(255), 
-	"ProcessType" VARCHAR(255), 
 	PRIMARY KEY (id)
 );
-INSERT INTO "JournalType" VALUES(1,'Represents a transaction that resets qualifying points balance for a loyalty program member.','Qualifying Points Reset','Loyalty');
-INSERT INTO "JournalType" VALUES(2,'Represents a transaction that expires points for a loyalty program member.','Points Expiration','Loyalty');
-INSERT INTO "JournalType" VALUES(3,'Represents a transaction that manually adjusts points for a loyalty program member.','Manual Points Adjustment','Loyalty');
-INSERT INTO "JournalType" VALUES(4,'Represents a transaction that reverses an accrual to a loyalty program member''s balance.','Accrual Reversal','Loyalty');
-INSERT INTO "JournalType" VALUES(5,'Represents a transaction that accrues points to a loyalty program member''s balance.','Accrual','Loyalty');
-INSERT INTO "JournalType" VALUES(6,'Represents a transaction that redeems a loyalty program member''s points.','Redemption','Loyalty');
-INSERT INTO "JournalType" VALUES(7,'Represents a transaction that reverses a redemption of a loyalty program member''s points.','Redemption Reversal','Loyalty');
+INSERT INTO "JournalType" VALUES(1,'Qualifying Points Reset');
+INSERT INTO "JournalType" VALUES(2,'Points Expiration');
+INSERT INTO "JournalType" VALUES(3,'Manual Points Adjustment');
+INSERT INTO "JournalType" VALUES(4,'Accrual Reversal');
+INSERT INTO "JournalType" VALUES(5,'Accrual');
+INSERT INTO "JournalType" VALUES(6,'Redemption');
+INSERT INTO "JournalType" VALUES(7,'Redemption Reversal');
 CREATE TABLE "LoyaltyPgmEngmtAttrProm" (
 	id INTEGER NOT NULL, 
 	"LoyaltyProgramEngmtAttrId" VARCHAR(255), 

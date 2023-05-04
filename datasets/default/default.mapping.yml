@@ -50,13 +50,6 @@ Insert Account:
   - TickerSymbol
   - Type
   - Website
-Insert JournalType:
-  sf_object: JournalType
-  table: JournalType
-  fields:
-  - Description
-  - Name
-  - ProcessType
 Insert Event:
   sf_object: Event
   table: Event
@@ -86,6 +79,11 @@ Insert Event:
   - ShowAs
   - StartDateTime
   - Subject
+Insert JournalType:
+  sf_object: JournalType
+  table: JournalType
+  fields:
+  - Name
 Insert LoyaltyProgramCurrency:
   sf_object: LoyaltyProgramCurrency
   table: LoyaltyProgramCurrency
@@ -148,16 +146,6 @@ Insert LoyaltyTierGroup:
     LoyaltyProgramId:
       table: LoyaltyProgram
       key_field: LoyaltyProgramId
-Insert JournalSubType:
-  sf_object: JournalSubType
-  table: JournalSubType
-  fields:
-  - Description
-  - Name
-  lookups:
-    JournalTypeId:
-      table: JournalType
-      key_field: JournalTypeId
 Insert LoyaltyPgmEngmtAttribute:
   sf_object: LoyaltyPgmEngmtAttribute
   table: LoyaltyPgmEngmtAttribute
@@ -177,6 +165,15 @@ Insert LoyaltyPgmEngmtAttribute:
     LoyaltyProgramId:
       table: LoyaltyProgram
       key_field: LoyaltyProgramId
+Insert JournalSubType:
+  sf_object: JournalSubType
+  table: JournalSubType
+  fields:
+  - Name
+  lookups:
+    JournalTypeId:
+      table: JournalType
+      key_field: JournalTypeId
 Insert Promotion:
   sf_object: Promotion
   table: Promotion

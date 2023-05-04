@@ -14,6 +14,7 @@ extract:
     - IsActive
     - IsPrimary
     - Name
+    - LoyaltyProgramId
   LoyaltyProgram:
     fields:
     - Description
@@ -135,15 +136,6 @@ extract:
     - ExecutionType
     - ProcessType
     - Status
-  JournalSubType:
-    fields:
-    - Description
-    - Name
-  JournalType:
-    fields:
-    - Description
-    - Name
-    - ProcessType
   LoyaltyPgmEngmtAttribute:
     fields:
     - DefaultValue
