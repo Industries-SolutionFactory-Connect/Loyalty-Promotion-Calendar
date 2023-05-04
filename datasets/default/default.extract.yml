@@ -1,8 +1,28 @@
 extract:
+  Campaign:
+    fields:
+    - Name
+  LoyaltyProgramCurrency:
+    fields:
+    - CostperUnit
+    - CurrencyType
+    - ExpiryModel
+    - ExpiryPeriodFrequency
+    - ExpiryPeriodUnit
+    - ExtendExpiration
+    - HasEscrow
+    - IsActive
+    - IsPrimary
+    - Name
+  LoyaltyProgram:
+    fields:
+    - Description
+    - EscrowPeriod
+    - IsPrimary
+    - Name
+    - Status
   VoucherDefinition:
     fields:
-    - PartnerAccountId
-    - IsActive
     - CostPerVoucher
     - Description
     - DiscountPercent
@@ -12,11 +32,13 @@ extract:
     - ExpirationPeriodUnit
     - ExpirationType
     - FaceValue
-    - LoyaltyProgramId
-    - Name
+    - IsActive
     - IsPartialRedeemable
-    - ProductId
+    - Name
     - Type
+    - PartnerAccountId
+    - LoyaltyProgramId
+    - ProductId
   Account:
     fields:
     - AccountNumber
@@ -53,13 +75,6 @@ extract:
     - TickerSymbol
     - Type
     - Website
-  LoyaltyProgram:
-    fields:
-    - Description
-    - EscrowPeriod
-    - IsPrimary
-    - Name
-    - Status
   Promotion:
     fields:
     - IsActive
@@ -89,23 +104,6 @@ extract:
     - Status
     - TransactionJournalType
     - DefaultVoucherDefinitionId
-  Campaign:
-    fields:
-    - Name
-  LoyaltyProgramCurrency:
-    fields:
-    - CostperUnit
-    - CurrencyType
-    - ExpiryModel
-    - ExpiryPeriodFrequency
-    - ExpiryPeriodUnit
-    - ExtendExpiration
-    - HasEscrow
-    - IsActive
-    - IsPrimary
-    - Name
-    - LoyaltyProgramId
-    - LoyaltyTierGroupId
   LoyaltyTierGroup:
     fields:
     - IsActive
@@ -127,11 +125,6 @@ extract:
     - LoyaltyTierGroupId
     - SequenceNumber
     - Name
-  LoyaltyProgramSetup:
-    fields:
-    - MasterLabel
-    - Language
-    - DeveloperName
   LoyaltyProgramProcess:
     fields:
     - Description

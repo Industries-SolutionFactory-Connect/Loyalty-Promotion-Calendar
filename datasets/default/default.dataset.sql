@@ -149,11 +149,10 @@ CREATE TABLE "LoyaltyProgramCurrency" (
 	"IsPrimary" VARCHAR(255), 
 	"Name" VARCHAR(255), 
 	"LoyaltyProgramId" VARCHAR(255), 
-	"LoyaltyTierGroupId" VARCHAR(255), 
 	PRIMARY KEY (id)
 );
-INSERT INTO "LoyaltyProgramCurrency" VALUES(1,'0.05','NonQualifying','Fixed','2','Years','None','False','True','True','Points','1','');
-INSERT INTO "LoyaltyProgramCurrency" VALUES(2,'','Qualifying','','','','','False','True','False','Tier Points','1','1');
+INSERT INTO "LoyaltyProgramCurrency" VALUES(1,'0.05','NonQualifying','Fixed','2','Years','None','False','True','True','Points','1');
+INSERT INTO "LoyaltyProgramCurrency" VALUES(2,'','Qualifying','','','','','False','True','False','Tier Points','1');
 CREATE TABLE "LoyaltyProgramProcess" (
 	id INTEGER NOT NULL, 
 	"Description" VARCHAR(255), 
@@ -167,14 +166,6 @@ CREATE TABLE "LoyaltyProgramProcess" (
 	PRIMARY KEY (id)
 );
 INSERT INTO "LoyaltyProgramProcess" VALUES(1,'','Process for Accruals with Purchase Journal Subtype','RealTime','TransactionJournal','Active','1','5','1');
-CREATE TABLE "LoyaltyProgramSetup" (
-	id INTEGER NOT NULL, 
-	"MasterLabel" VARCHAR(255), 
-	"Language" VARCHAR(255), 
-	"DeveloperName" VARCHAR(255), 
-	PRIMARY KEY (id)
-);
-INSERT INTO "LoyaltyProgramSetup" VALUES(1,'NTO Insider','en_US','NTO_Insider');
 CREATE TABLE "LoyaltyTier" (
 	id INTEGER NOT NULL, 
 	"Description" VARCHAR(255), 
@@ -239,7 +230,6 @@ INSERT INTO "Promotion" VALUES(1,'True','','','','','2023-06-30','2023-06-01','T
 INSERT INTO "Promotion" VALUES(2,'True','','','','','','','False','','','','Standard','','','','Birthday Promotion','','','False','','2023-04-01','','Accrual','','','','1');
 CREATE TABLE "VoucherDefinition" (
 	id INTEGER NOT NULL, 
-	"IsActive" VARCHAR(255), 
 	"CostPerVoucher" VARCHAR(255), 
 	"Description" VARCHAR(255), 
 	"DiscountPercent" VARCHAR(255), 
@@ -249,13 +239,14 @@ CREATE TABLE "VoucherDefinition" (
 	"ExpirationPeriodUnit" VARCHAR(255), 
 	"ExpirationType" VARCHAR(255), 
 	"FaceValue" VARCHAR(255), 
-	"Name" VARCHAR(255), 
+	"IsActive" VARCHAR(255), 
 	"IsPartialRedeemable" VARCHAR(255), 
+	"Name" VARCHAR(255), 
 	"Type" VARCHAR(255), 
 	"LoyaltyProgramId" VARCHAR(255), 
 	"PartnerAccountId" VARCHAR(255), 
 	PRIMARY KEY (id)
 );
-INSERT INTO "VoucherDefinition" VALUES(1,'True','1.1','','10','2023-04-01','','2','Months','Period','','10% Discount On Apparel','False','DiscountPercentage','1','');
-INSERT INTO "VoucherDefinition" VALUES(2,'True','1.0','','15','2023-04-01','','2','Months','Period','','15% Discount On Apparel','False','DiscountPercentage','1','');
+INSERT INTO "VoucherDefinition" VALUES(1,'1.1','','10','2023-04-01','','2','Months','Period','','True','False','10% Discount On Apparel','DiscountPercentage','1','');
+INSERT INTO "VoucherDefinition" VALUES(2,'1.0','','15','2023-04-01','','2','Months','Period','','True','False','15% Discount On Apparel','DiscountPercentage','1','');
 COMMIT;

@@ -1,3 +1,17 @@
+Insert Campaign:
+  sf_object: Campaign
+  table: Campaign
+  fields:
+  - Name
+Insert LoyaltyProgram:
+  sf_object: LoyaltyProgram
+  table: LoyaltyProgram
+  fields:
+  - Description
+  - EscrowPeriod
+  - IsPrimary
+  - Name
+  - Status
 Insert Account:
   sf_object: Account
   table: Account
@@ -36,27 +50,6 @@ Insert Account:
   - TickerSymbol
   - Type
   - Website
-Insert LoyaltyProgram:
-  sf_object: LoyaltyProgram
-  table: LoyaltyProgram
-  fields:
-  - Description
-  - EscrowPeriod
-  - IsPrimary
-  - Name
-  - Status
-Insert Campaign:
-  sf_object: Campaign
-  table: Campaign
-  fields:
-  - Name
-Insert LoyaltyProgramSetup:
-  sf_object: LoyaltyProgramSetup
-  table: LoyaltyProgramSetup
-  fields:
-  - MasterLabel
-  - Language
-  - DeveloperName
 Insert JournalType:
   sf_object: JournalType
   table: JournalType
@@ -93,11 +86,28 @@ Insert Event:
   - ShowAs
   - StartDateTime
   - Subject
+Insert LoyaltyProgramCurrency:
+  sf_object: LoyaltyProgramCurrency
+  table: LoyaltyProgramCurrency
+  fields:
+  - CostperUnit
+  - CurrencyType
+  - ExpiryModel
+  - ExpiryPeriodFrequency
+  - ExpiryPeriodUnit
+  - ExtendExpiration
+  - HasEscrow
+  - IsActive
+  - IsPrimary
+  - Name
+  lookups:
+    LoyaltyProgramId:
+      table: LoyaltyProgram
+      key_field: LoyaltyProgramId
 Insert VoucherDefinition:
   sf_object: VoucherDefinition
   table: VoucherDefinition
   fields:
-  - IsActive
   - CostPerVoucher
   - Description
   - DiscountPercent
@@ -107,8 +117,9 @@ Insert VoucherDefinition:
   - ExpirationPeriodUnit
   - ExpirationType
   - FaceValue
-  - Name
+  - IsActive
   - IsPartialRedeemable
+  - Name
   - Type
   lookups:
     PartnerAccountId:
@@ -166,57 +177,6 @@ Insert LoyaltyPgmEngmtAttribute:
     LoyaltyProgramId:
       table: LoyaltyProgram
       key_field: LoyaltyProgramId
-Insert LoyaltyProgramCurrency:
-  sf_object: LoyaltyProgramCurrency
-  table: LoyaltyProgramCurrency
-  fields:
-  - CostperUnit
-  - CurrencyType
-  - ExpiryModel
-  - ExpiryPeriodFrequency
-  - ExpiryPeriodUnit
-  - ExtendExpiration
-  - HasEscrow
-  - IsActive
-  - IsPrimary
-  - Name
-  lookups:
-    LoyaltyProgramId:
-      table: LoyaltyProgram
-      key_field: LoyaltyProgramId
-    LoyaltyTierGroupId:
-      table: LoyaltyTierGroup
-      key_field: LoyaltyTierGroupId
-Insert LoyaltyTier:
-  sf_object: LoyaltyTier
-  table: LoyaltyTier
-  fields:
-  - Description
-  - SequenceNumber
-  - Name
-  lookups:
-    LoyaltyTierGroupId:
-      table: LoyaltyTierGroup
-      key_field: LoyaltyTierGroupId
-Insert LoyaltyProgramProcess:
-  sf_object: LoyaltyProgramProcess
-  table: LoyaltyProgramProcess
-  fields:
-  - Description
-  - Name
-  - ExecutionType
-  - ProcessType
-  - Status
-  lookups:
-    JournalSubTypeId:
-      table: JournalSubType
-      key_field: JournalSubTypeId
-    JournalTypeId:
-      table: JournalType
-      key_field: JournalTypeId
-    LoyaltyProgramId:
-      table: LoyaltyProgram
-      key_field: LoyaltyProgramId
 Insert Promotion:
   sf_object: Promotion
   table: Promotion
@@ -257,6 +217,36 @@ Insert Promotion:
     DefaultVoucherDefinitionId:
       table: VoucherDefinition
       key_field: DefaultVoucherDefinitionId
+Insert LoyaltyTier:
+  sf_object: LoyaltyTier
+  table: LoyaltyTier
+  fields:
+  - Description
+  - SequenceNumber
+  - Name
+  lookups:
+    LoyaltyTierGroupId:
+      table: LoyaltyTierGroup
+      key_field: LoyaltyTierGroupId
+Insert LoyaltyProgramProcess:
+  sf_object: LoyaltyProgramProcess
+  table: LoyaltyProgramProcess
+  fields:
+  - Description
+  - Name
+  - ExecutionType
+  - ProcessType
+  - Status
+  lookups:
+    JournalSubTypeId:
+      table: JournalSubType
+      key_field: JournalSubTypeId
+    JournalTypeId:
+      table: JournalType
+      key_field: JournalTypeId
+    LoyaltyProgramId:
+      table: LoyaltyProgram
+      key_field: LoyaltyProgramId
 Insert LoyaltyPgmEngmtAttrProm:
   sf_object: LoyaltyPgmEngmtAttrProm
   table: LoyaltyPgmEngmtAttrProm
