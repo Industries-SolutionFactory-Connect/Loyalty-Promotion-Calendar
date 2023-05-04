@@ -146,10 +146,11 @@ CREATE TABLE "LoyaltyProgramCurrency" (
 	"IsPrimary" VARCHAR(255), 
 	"Name" VARCHAR(255), 
 	"LoyaltyProgramId" VARCHAR(255), 
+	"LoyaltyTierGroupId" VARCHAR(255), 
 	PRIMARY KEY (id)
 );
-INSERT INTO "LoyaltyProgramCurrency" VALUES(1,'0.05','NonQualifying','Fixed','2','Years','None','False','True','True','Points','1');
-INSERT INTO "LoyaltyProgramCurrency" VALUES(2,'','Qualifying','','','','','False','True','False','Tier Points','1');
+INSERT INTO "LoyaltyProgramCurrency" VALUES(1,'0.05','NonQualifying','Fixed','2','Years','None','False','True','True','Points','1','');
+INSERT INTO "LoyaltyProgramCurrency" VALUES(2,'','Qualifying','','','','','False','True','False','Tier Points','1','1');
 CREATE TABLE "LoyaltyProgramProcess" (
 	id INTEGER NOT NULL, 
 	"Description" VARCHAR(255), 

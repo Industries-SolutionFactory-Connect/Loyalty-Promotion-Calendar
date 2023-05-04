@@ -84,24 +84,6 @@ Insert JournalType:
   table: JournalType
   fields:
   - Name
-Insert LoyaltyProgramCurrency:
-  sf_object: LoyaltyProgramCurrency
-  table: LoyaltyProgramCurrency
-  fields:
-  - CostperUnit
-  - CurrencyType
-  - ExpiryModel
-  - ExpiryPeriodFrequency
-  - ExpiryPeriodUnit
-  - ExtendExpiration
-  - HasEscrow
-  - IsActive
-  - IsPrimary
-  - Name
-  lookups:
-    LoyaltyProgramId:
-      table: LoyaltyProgram
-      key_field: LoyaltyProgramId
 Insert VoucherDefinition:
   sf_object: VoucherDefinition
   table: VoucherDefinition
@@ -174,6 +156,57 @@ Insert JournalSubType:
     JournalTypeId:
       table: JournalType
       key_field: JournalTypeId
+Insert LoyaltyProgramCurrency:
+  sf_object: LoyaltyProgramCurrency
+  table: LoyaltyProgramCurrency
+  fields:
+  - CostperUnit
+  - CurrencyType
+  - ExpiryModel
+  - ExpiryPeriodFrequency
+  - ExpiryPeriodUnit
+  - ExtendExpiration
+  - HasEscrow
+  - IsActive
+  - IsPrimary
+  - Name
+  lookups:
+    LoyaltyProgramId:
+      table: LoyaltyProgram
+      key_field: LoyaltyProgramId
+    LoyaltyTierGroupId:
+      table: LoyaltyTierGroup
+      key_field: LoyaltyTierGroupId
+Insert LoyaltyTier:
+  sf_object: LoyaltyTier
+  table: LoyaltyTier
+  fields:
+  - Description
+  - SequenceNumber
+  - Name
+  lookups:
+    LoyaltyTierGroupId:
+      table: LoyaltyTierGroup
+      key_field: LoyaltyTierGroupId
+Insert LoyaltyProgramProcess:
+  sf_object: LoyaltyProgramProcess
+  table: LoyaltyProgramProcess
+  fields:
+  - Description
+  - Name
+  - ExecutionType
+  - ProcessType
+  - Status
+  lookups:
+    JournalSubTypeId:
+      table: JournalSubType
+      key_field: JournalSubTypeId
+    JournalTypeId:
+      table: JournalType
+      key_field: JournalTypeId
+    LoyaltyProgramId:
+      table: LoyaltyProgram
+      key_field: LoyaltyProgramId
 Insert Promotion:
   sf_object: Promotion
   table: Promotion
@@ -214,36 +247,6 @@ Insert Promotion:
     DefaultVoucherDefinitionId:
       table: VoucherDefinition
       key_field: DefaultVoucherDefinitionId
-Insert LoyaltyTier:
-  sf_object: LoyaltyTier
-  table: LoyaltyTier
-  fields:
-  - Description
-  - SequenceNumber
-  - Name
-  lookups:
-    LoyaltyTierGroupId:
-      table: LoyaltyTierGroup
-      key_field: LoyaltyTierGroupId
-Insert LoyaltyProgramProcess:
-  sf_object: LoyaltyProgramProcess
-  table: LoyaltyProgramProcess
-  fields:
-  - Description
-  - Name
-  - ExecutionType
-  - ProcessType
-  - Status
-  lookups:
-    JournalSubTypeId:
-      table: JournalSubType
-      key_field: JournalSubTypeId
-    JournalTypeId:
-      table: JournalType
-      key_field: JournalTypeId
-    LoyaltyProgramId:
-      table: LoyaltyProgram
-      key_field: LoyaltyProgramId
 Insert LoyaltyPgmEngmtAttrProm:
   sf_object: LoyaltyPgmEngmtAttrProm
   table: LoyaltyPgmEngmtAttrProm

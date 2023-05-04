@@ -15,6 +15,7 @@ extract:
     - IsPrimary
     - Name
     - LoyaltyProgramId
+    - LoyaltyTierGroupId
   LoyaltyProgram:
     fields:
     - Description
@@ -126,16 +127,6 @@ extract:
     - LoyaltyTierGroupId
     - SequenceNumber
     - Name
-  LoyaltyProgramProcess:
-    fields:
-    - Description
-    - JournalSubTypeId
-    - JournalTypeId
-    - LoyaltyProgramId
-    - Name
-    - ExecutionType
-    - ProcessType
-    - Status
   LoyaltyPgmEngmtAttribute:
     fields:
     - DefaultValue
@@ -183,3 +174,13 @@ extract:
     - ShowAs
     - StartDateTime
     - Subject
+  LoyaltyProgramProcess:
+    fields:
+    - Description
+    - JournalSubTypeId
+    - JournalTypeId
+    - LoyaltyProgramId
+    - Name
+    - ExecutionType
+    - ProcessType
+    - Status
