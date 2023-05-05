@@ -79,11 +79,6 @@ Insert Event:
   - ShowAs
   - StartDateTime
   - Subject
-Insert JournalType:
-  sf_object: JournalType
-  table: JournalType
-  fields:
-  - Name
 Insert VoucherDefinition:
   sf_object: VoucherDefinition
   table: VoucherDefinition
@@ -147,15 +142,6 @@ Insert LoyaltyPgmEngmtAttribute:
     LoyaltyProgramId:
       table: LoyaltyProgram
       key_field: LoyaltyProgramId
-Insert JournalSubType:
-  sf_object: JournalSubType
-  table: JournalSubType
-  fields:
-  - Name
-  lookups:
-    JournalTypeId:
-      table: JournalType
-      key_field: JournalTypeId
 Insert LoyaltyProgramCurrency:
   sf_object: LoyaltyProgramCurrency
   table: LoyaltyProgramCurrency
@@ -188,25 +174,6 @@ Insert LoyaltyTier:
     LoyaltyTierGroupId:
       table: LoyaltyTierGroup
       key_field: LoyaltyTierGroupId
-Insert LoyaltyProgramProcess:
-  sf_object: LoyaltyProgramProcess
-  table: LoyaltyProgramProcess
-  fields:
-  - Description
-  - Name
-  - ExecutionType
-  - ProcessType
-  - Status
-  lookups:
-    JournalSubTypeId:
-      table: JournalSubType
-      key_field: JournalSubTypeId
-    JournalTypeId:
-      table: JournalType
-      key_field: JournalTypeId
-    LoyaltyProgramId:
-      table: LoyaltyProgram
-      key_field: LoyaltyProgramId
 Insert Promotion:
   sf_object: Promotion
   table: Promotion

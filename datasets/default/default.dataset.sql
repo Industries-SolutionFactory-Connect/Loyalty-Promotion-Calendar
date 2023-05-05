@@ -76,27 +76,6 @@ CREATE TABLE "Event" (
 );
 INSERT INTO "Event" VALUES(1,'True','False','','2023-04-28','','4320','2023-04-30T00:00:00.000+0000','Event','','False','','','','','','','','','','','','False','Busy','2023-04-28T00:00:00.000+0000','Labour Day Long Weekend');
 INSERT INTO "Event" VALUES(2,'True','False','','2023-07-01','','11520','2023-07-08T00:00:00.000+0000','Event','','False','','','','','','','','','','','','False','Busy','2023-07-01T00:00:00.000+0000','Fourth Of July');
-CREATE TABLE "JournalSubType" (
-	id INTEGER NOT NULL, 
-	"Name" VARCHAR(255), 
-	"JournalTypeId" VARCHAR(255), 
-	PRIMARY KEY (id)
-);
-INSERT INTO "JournalSubType" VALUES(1,'Purchase','5');
-INSERT INTO "JournalSubType" VALUES(2,'Member Enrollment','5');
-INSERT INTO "JournalSubType" VALUES(3,'Member Referral','5');
-CREATE TABLE "JournalType" (
-	id INTEGER NOT NULL, 
-	"Name" VARCHAR(255), 
-	PRIMARY KEY (id)
-);
-INSERT INTO "JournalType" VALUES(1,'Qualifying Points Reset');
-INSERT INTO "JournalType" VALUES(2,'Points Expiration');
-INSERT INTO "JournalType" VALUES(3,'Manual Points Adjustment');
-INSERT INTO "JournalType" VALUES(4,'Accrual Reversal');
-INSERT INTO "JournalType" VALUES(5,'Accrual');
-INSERT INTO "JournalType" VALUES(6,'Redemption');
-INSERT INTO "JournalType" VALUES(7,'Redemption Reversal');
 CREATE TABLE "LoyaltyPgmEngmtAttrProm" (
 	id INTEGER NOT NULL, 
 	"LoyaltyProgramEngmtAttrId" VARCHAR(255), 
@@ -151,19 +130,6 @@ CREATE TABLE "LoyaltyProgramCurrency" (
 );
 INSERT INTO "LoyaltyProgramCurrency" VALUES(1,'0.05','NonQualifying','Fixed','2','Years','None','False','True','True','Points','1','');
 INSERT INTO "LoyaltyProgramCurrency" VALUES(2,'','Qualifying','','','','','False','True','False','Tier Points','1','1');
-CREATE TABLE "LoyaltyProgramProcess" (
-	id INTEGER NOT NULL, 
-	"Description" VARCHAR(255), 
-	"Name" VARCHAR(255), 
-	"ExecutionType" VARCHAR(255), 
-	"ProcessType" VARCHAR(255), 
-	"Status" VARCHAR(255), 
-	"JournalSubTypeId" VARCHAR(255), 
-	"JournalTypeId" VARCHAR(255), 
-	"LoyaltyProgramId" VARCHAR(255), 
-	PRIMARY KEY (id)
-);
-INSERT INTO "LoyaltyProgramProcess" VALUES(1,'','Process for Accruals with Purchase Journal Subtype','RealTime','TransactionJournal','Active','1','5','1');
 CREATE TABLE "LoyaltyTier" (
 	id INTEGER NOT NULL, 
 	"Description" VARCHAR(255), 
