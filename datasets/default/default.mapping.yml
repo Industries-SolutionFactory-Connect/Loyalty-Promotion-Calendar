@@ -1,3 +1,8 @@
+Insert Campaign:
+  sf_object: Campaign
+  table: Campaign
+  fields:
+  - Name
 Insert LoyaltyProgram:
   sf_object: LoyaltyProgram
   table: LoyaltyProgram
@@ -8,9 +13,9 @@ Insert LoyaltyProgram:
   - Name
   - Status
   - Type
-Insert Campaign:
-  sf_object: Campaign
-  table: Campaign
+Insert Account:
+  sf_object: Account
+  table: Account
   fields:
   - Name
 Insert Event:
@@ -42,30 +47,6 @@ Insert Event:
   - ShowAs
   - StartDateTime
   - Subject
-Insert Account:
-  sf_object: Account
-  table: Account
-  fields:
-  - Name
-Insert LoyaltyPgmEngmtAttribute:
-  sf_object: LoyaltyPgmEngmtAttribute
-  table: LoyaltyPgmEngmtAttribute
-  fields:
-  - DefaultValue
-  - Description
-  - EndDate
-  - MaximumResetCountPerPeriod
-  - Name
-  - ShouldOverwriteAttrCurrVal
-  - ResetValueOn
-  - StartDate
-  - Status
-  - TargetValue
-  - ValueResetFrequency
-  lookups:
-    LoyaltyProgramId:
-      table: LoyaltyProgram
-      key_field: LoyaltyProgramId
 Insert VoucherDefinition:
   sf_object: VoucherDefinition
   table: VoucherDefinition
@@ -94,17 +75,45 @@ Insert VoucherDefinition:
     LoyaltyProgramId:
       table: LoyaltyProgram
       key_field: LoyaltyProgramId
-Insert LoyaltyPgmEngmtAttrProm:
-  sf_object: LoyaltyPgmEngmtAttrProm
-  table: LoyaltyPgmEngmtAttrProm
+Insert LoyaltyTierGroup:
+  sf_object: LoyaltyTierGroup
+  table: LoyaltyTierGroup
+  fields:
+  - Description
+  - ExtendExpiration
+  - IsActive
+  - IsHiddenToMembers
+  - IsPrimary
+  - Name
+  - QpResetDate
+  - QpResetFrequency
+  - QpResetPeriod
+  - TierModel
+  - TierPeriodQuantity
+  - TierPeriodUnit
   lookups:
-    LoyaltyProgramEngmtAttrId:
-      table: LoyaltyPgmEngmtAttribute
-      key_field: LoyaltyProgramEngmtAttrId
-    PromotionId:
-      table: Promotion
-      key_field: PromotionId
-      after: Insert Promotion
+    LoyaltyProgramId:
+      table: LoyaltyProgram
+      key_field: LoyaltyProgramId
+Insert LoyaltyPgmEngmtAttribute:
+  sf_object: LoyaltyPgmEngmtAttribute
+  table: LoyaltyPgmEngmtAttribute
+  fields:
+  - DefaultValue
+  - Description
+  - EndDate
+  - MaximumResetCountPerPeriod
+  - Name
+  - ShouldOverwriteAttrCurrVal
+  - ResetValueOn
+  - StartDate
+  - Status
+  - TargetValue
+  - ValueResetFrequency
+  lookups:
+    LoyaltyProgramId:
+      table: LoyaltyProgram
+      key_field: LoyaltyProgramId
 Insert LoyaltyProgramCurrency:
   sf_object: LoyaltyProgramCurrency
   table: LoyaltyProgramCurrency
@@ -126,30 +135,19 @@ Insert LoyaltyProgramCurrency:
     LoyaltyTierGroupId:
       table: LoyaltyTierGroup
       key_field: LoyaltyTierGroupId
-      after: Insert LoyaltyTierGroup
-Insert LoyaltyTierGroup:
-  sf_object: LoyaltyTierGroup
-  table: LoyaltyTierGroup
+Insert LoyaltyTier:
+  sf_object: LoyaltyTier
+  table: LoyaltyTier
   fields:
   - Description
-  - ExtendExpiration
-  - IsActive
-  - IsHiddenToMembers
-  - IsPrimary
+  - MaximumEligibleBalance
+  - MinimumEligibleBalance
+  - SequenceNumber
   - Name
-  - QpResetDate
-  - QpResetFrequency
-  - QpResetPeriod
-  - TierModel
-  - TierPeriodQuantity
-  - TierPeriodUnit
   lookups:
-    TierAssessmentCurrencyId:
-      table: LoyaltyProgramCurrency
-      key_field: TierAssessmentCurrencyId
-    LoyaltyProgramId:
-      table: LoyaltyProgram
-      key_field: LoyaltyProgramId
+    LoyaltyTierGroupId:
+      table: LoyaltyTierGroup
+      key_field: LoyaltyTierGroupId
 Insert Promotion:
   sf_object: Promotion
   table: Promotion
@@ -193,16 +191,13 @@ Insert Promotion:
     DefaultVoucherDefinitionId:
       table: VoucherDefinition
       key_field: DefaultVoucherDefinitionId
-Insert LoyaltyTier:
-  sf_object: LoyaltyTier
-  table: LoyaltyTier
-  fields:
-  - Description
-  - MaximumEligibleBalance
-  - MinimumEligibleBalance
-  - SequenceNumber
-  - Name
+Insert LoyaltyPgmEngmtAttrProm:
+  sf_object: LoyaltyPgmEngmtAttrProm
+  table: LoyaltyPgmEngmtAttrProm
   lookups:
-    LoyaltyTierGroupId:
-      table: LoyaltyTierGroup
-      key_field: LoyaltyTierGroupId
+    LoyaltyProgramEngmtAttrId:
+      table: LoyaltyPgmEngmtAttribute
+      key_field: LoyaltyProgramEngmtAttrId
+    PromotionId:
+      table: Promotion
+      key_field: PromotionId

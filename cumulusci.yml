@@ -29,12 +29,18 @@ tasks:
 flows:
     config_dev:
         steps:
-            3:
+            1:
                 task: deploy
                 options:
                     path: force-app/main/default
                 ui_options:
                     name: Deploy Metadata/Data for Loyalty Cloud configurations
+            2:
+                task: snowfakery
+                options:
+                    recipe: datasets/default/default.journalTypeSubType.yml
+                ui_options:
+                    name: Create Journal Subtype for use in data loads
 
 plans:
     install:
