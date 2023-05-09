@@ -26,3 +26,31 @@ tasks:
     run_tests:
         options:
             required_org_code_coverage_percent: 75
+flows:
+    config_dev:
+        steps:
+            1:
+                task: deploy
+                options:
+                    path: force-app/main/default
+                ui_options:
+                    name: Deploy Metadata/Data for Loyalty Cloud configurations
+            2:
+                task: snowfakery
+                options:
+                    recipe: datasets/default/default.journalTypeSubType.yml
+                ui_options:
+                    name: Create Journal Subtype for use in data loads
+
+plans:
+    install:
+        slug: install
+        title: Promotion Calendar for Loyalty Promotions
+        tier: primary
+        is_listed: True
+        preflight_message: "This will showcase Reference Configuration to show how Promotion Calendar looks like when setup for a loyalty program"
+        post_install_message: "Thanks for installing Loyalty Cloud Promotion Calendar Module. "
+        error_message: "To get help with this error, go to [help.salesforce.com](https://help.salesforce.com/), find the Support & Services area and log a technical support ticket with Salesforce. Include “PMM” in the subject line and include in your comment the installation link shown here."
+        steps:
+            1:
+                flow: config_dev
