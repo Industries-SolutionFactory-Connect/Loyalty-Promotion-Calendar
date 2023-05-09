@@ -6,9 +6,7 @@ project:
         api_version: '58.0'
     git:
         default_branch: 'main'
-        prefix_feature: 'feature/'
-        prefix_beta: 'beta/'
-        prefix_release: 'release/'
+        repo_url: https://github.com/Industries-SolutionFactory-Connect/Loyalty-Promotion-Calendar
     source_format: sfdx
 
 tasks:
@@ -51,6 +49,13 @@ plans:
         preflight_message: "This will showcase Reference Configuration to show how Promotion Calendar looks like when setup for a loyalty program"
         post_install_message: "Thanks for installing Loyalty Cloud Promotion Calendar Module. "
         error_message: "To get help with this error, go to [help.salesforce.com](https://help.salesforce.com/), find the Support & Services area and log a technical support ticket with Salesforce. Include “PMM” in the subject line and include in your comment the installation link shown here."
+        checks:
+          - when: "'LoyaltyManagementPsl' not in tasks.get_available_licenses()"
+            action: error
+            message: "You need LoyaltyManagementPsl licence to use this feature. Contact your Administrator."
+          - when: "'LoyaltyAdmin' not in tasks.get_assigned_permission_sets()"
+            action: error
+            message: "You need LoyaltyAdmin PSL to use this feature. Contact your Administrator."            
         steps:
             1:
                 flow: config_dev
