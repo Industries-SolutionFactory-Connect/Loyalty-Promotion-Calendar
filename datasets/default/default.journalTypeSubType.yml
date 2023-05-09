@@ -1,0 +1,9 @@
+- plugin: snowfakery.standard_plugins.Salesforce.SalesforceQuery
+
+- object: JournalSubType
+  fields:
+    Name: Purchase
+    JournalTypeId:
+      SalesforceQuery.find_record:
+        from: JournalType
+        where: name='Accrual'
